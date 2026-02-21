@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoTerrace Careers | Data Science Intern</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 { margin: 0; color: #1a1a1a; }
+        .tags {
+            display: flex;
+            gap: 15px;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .tag span { font-weight: bold; color: #0056b3; }
+        
+        /* Button Styles */
+        .btn {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #004494; }
+        .btn-outline {
+            background-color: transparent;
+            color: #0056b3;
+            border: 2px solid #0056b3;
+        }
+        .btn-outline:hover {
+            background-color: #f0f7ff;
+        }
+
+        /* Form Styles */
+        form { display: flex; flex-direction: column; gap: 20px; }
+        label { font-weight: bold; margin-bottom: 5px; display: block; }
+        input[type="text"], input[type="email"], input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Visibility Toggles */
+        #applicationSection { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div id="jdSection">
+        <div class="header">
+            <div>
+                <h1>Data Science Intern</h1>
+                <div class="tags">
+                    <div class="tag">📍 <span>Tokyo, Japan / Remote (US)</span></div>
+                    <div class="tag">💼 <span>Internship</span></div>
+                </div>
+            </div>
+            <button class="btn" onclick="showApplication()">Apply Now</button>
+        </div>
+
+        <div class="description">
+            <h3>About the Role</h3>
+            <p>We are looking for a highly analytical Data Science Intern to help build predictive models bridging our operations between the US and Japan. You will process datasets, build machine learning pipelines, and extract insights.</p>
+            
+            <h3>Requirements</h3>
+            <ul>
+                <li>Currently pursuing a relevant B.S. degree.</li>
+                <li>Proficiency in statistical modeling and programming (Python, standard ML libraries).</li>
+                <li>Business-level fluency in both English and Japanese is a strong plus.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="applicationSection">
+        <div class="header">
+            <div>
+                <h1>Submit Your Application</h1>
+                <p style="margin: 5px 0 0 0; color: #666;">Applying for: <strong>Data Science Intern</strong></p>
+            </div>
+            <button class="btn btn-outline" onclick="showJD()">Back to Job</button>
+        </div>
+
+        <form action="https://getform.io/f/fksdq35xffn" method="POST" enctype="multipart/form-data">
+            
+            <div>
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="name" placeholder="e.g., Sou Hamura" required>
+            </div>
+
+            <div>
+                <label for="emailAddress">Email Address</label>
+                <input type="text" id="emailAddress" name="email" placeholder="e.g., test@agent.com" pattern=".+@.+\..+" title="Must be in the format of xxx@xx.com" required>
+            </div>
+
+            <div>
+                <label for="university">University</label>
+                <input type="text" id="university" name="university" placeholder="e.g., UC Santa Barbara" required>
+            </div>
+
+            <div>
+                <label for="major">Major</label>
+                <input type="text" id="major" name="major" placeholder="e.g., Statistics and Data Science" required>
+            </div>
+
+            <div>
+                <label for="languages">Languages Spoken</label>
+                <input type="text" id="languages" name="languages" placeholder="e.g., English, Japanese" required>
+            </div>
+
+            <div>
+                <label for="resume">Upload Resume (PDF)</label>
+                <input type="file" id="resume" name="resume" accept=".pdf" required>
+            </div>
+
+            <button type="submit" class="btn" style="margin-top: 10px;">Submit Application</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    function showApplication() {
+        document.getElementById('jdSection').style.display = 'none';
+        document.getElementById('applicationSection').style.display = 'block';
+    }
+
+    function showJD() {
+        document.getElementById('applicationSection').style.display = 'none';
+        document.getElementById('jdSection').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
