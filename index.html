@@ -5,50 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Engineer Job Posting</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #004C8C;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-            background-color: white;
-            margin: 10px;
-            border-radius: 5px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        footer p {
-            margin: 5px 0;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #004C8C; color: white; padding: 10px 0; text-align: center; }
+        section { padding: 20px; background-color: white; margin: 10px; border-radius: 5px; }
+        h1, h2 { color: #333; }
+        ul { list-style-type: none; padding-left: 0; }
+        footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
+        footer p { margin: 5px 0; }
+        button { padding: 10px 20px; background-color: #004C8C; color: white; border: none; cursor: pointer; border-radius: 5px; font-size: 16px; }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <h1>Software Engineer</h1>
+        <p><strong>Tech Solutions Inc.</strong></p>
         <p>Location: New York, NY</p>
     </header>
 
-    <!-- Job Posting Section -->
     <section>
         <h2>Job Summary</h2>
         <p>We are looking for a motivated Software Engineer to join our growing team. As a software engineer, you'll develop and maintain our core applications and work closely with other teams to solve complex technical problems.</p>
@@ -75,13 +48,11 @@
             <li>Knowledge of cloud platforms (AWS, GCP, etc.).</li>
         </ul>
 
-        <!-- Apply Now Button with redirect to apply.html -->
-        <a href="apply.html">
+        <a href="apply.html?job_title=Software%20Engineer&location=New%20York,%20NY&company=Tech%20Solutions%20Inc.">
             <button>Apply Now</button>
         </a>
     </section>
 
-    <!-- Contact Information Section -->
     <footer>
         <h2>Contact Information</h2>
         <p>If you have any questions, feel free to reach out:</p>
