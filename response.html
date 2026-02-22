@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Response - Software Engineer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #004C8C;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            background-color: white;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .response-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Your Application Response</h1>
+    </header>
+
+    <!-- Response Display Section -->
+    <section class="response-container">
+        <h2>Submitted Information:</h2>
+        <p><strong>University Name:</strong> <span id="response-university"></span></p>
+        <p><strong>Graduation Year:</strong> <span id="response-graduation-year"></span></p>
+        <p><strong>Major:</strong> <span id="response-major"></span></p>
+        <p><strong>GPA:</strong> <span id="response-gpa"></span></p>
+        <p><strong>Email:</strong> <span id="response-email"></span></p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>If you have any questions, feel free to reach out:</p>
+        <p><strong>Email:</strong> brendanjaesungc@gmail.com</p>
+        <p><strong>Phone:</strong> 949-239-5501</p>
+    </footer>
+
+    <script>
+        // Get parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("response-university").textContent = urlParams.get("university");
+        document.getElementById("response-graduation-year").textContent = urlParams.get("graduation_year");
+        document.getElementById("response-major").textContent = urlParams.get("major");
+        document.getElementById("response-gpa").textContent = urlParams.get("gpa");
+        document.getElementById("response-email").textContent = urlParams.get("email");
+    </script>
+
+</body>
+</html>
