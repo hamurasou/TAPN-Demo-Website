@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Form - Software Engineer</title>
+    <title>Application Form</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
         header { background-color: #004C8C; color: white; padding: 10px 0; text-align: center; }
@@ -15,16 +15,16 @@
     </style>
 </head>
 <body>
-    <header><h1>Software Engineer Application</h1></header>
+    <header><h1 id="dynamic-header">Application Form</h1></header>
 
     <section>
-        <h2>Apply for the Software Engineer Position</h2>
-<form name="application" method="POST" data-netlify="true" enctype="multipart/form-data" action="/response.html">
+        <h2>Apply for this Position</h2>
+        <form name="application" method="POST" data-netlify="true" enctype="multipart/form-data" action="/response.html">
             <input type="hidden" name="form-name" value="application" />
             
-            <input type="hidden" name="job_title" value="Software Engineer" />
-            <input type="hidden" name="company_name" value="CoTerrace" />
-            <input type="hidden" name="office_location" value="Tokyo, Japan" />
+            <input type="hidden" name="job_title" id="hidden_job_title" value="" />
+            <input type="hidden" name="location" id="hidden_location" value="" />
+            <input type="hidden" name="company" id="hidden_company" value="" />
 
             <label for="applicant_name">Full Name:</label>
             <input type="text" name="applicant_name" id="applicant_name" required>
@@ -56,11 +56,25 @@
     </footer>
 
     <script>
+        // 1. Grab the parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlJobTitle = urlParams.get('job_title') || 'Position';
+        const urlLocation = urlParams.get('location') || '';
+        const urlCompany = urlParams.get('company') || '';
+
+        // 2. Update the page title visually so it looks custom
+        document.getElementById('dynamic-header').innerText = urlJobTitle + " Application";
+
+        // 3. Inject the data into the hidden Netlify form fields
+        document.getElementById('hidden_job_title').value = urlJobTitle;
+        document.getElementById('hidden_location').value = urlLocation;
+        document.getElementById('hidden_company').value = urlCompany;
+
+        // 4. Ensure teammate's redirect still works
         const form = document.querySelector('form');
         form.addEventListener('submit', (e) => {
             const formData = new FormData(form);
             const params = new URLSearchParams(formData);
-            // Append parameters to the action URL before navigating
             form.action = `/response.html?${params.toString()}`;
         });
     </script>
