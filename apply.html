@@ -55,7 +55,7 @@
         <p>Email: brendanjaesungc@gmail.com | Phone: 949-239-5501</p>
     </footer>
 
-    <script>
+<script>
         // 1. Grab the parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const urlJobTitle = urlParams.get('job_title') || 'Position';
@@ -70,12 +70,17 @@
         document.getElementById('hidden_location').value = urlLocation;
         document.getElementById('hidden_company').value = urlCompany;
 
-        // 4. Ensure teammate's redirect still works
+        // 4. Save data to Session Storage instead of the URL to prevent Netlify duplicates
         const form = document.querySelector('form');
         form.addEventListener('submit', (e) => {
-            const formData = new FormData(form);
-            const params = new URLSearchParams(formData);
-            form.action = `/response.html?${params.toString()}`;
+            sessionStorage.setItem("university", document.getElementById("university").value);
+            sessionStorage.setItem("graduation_year", document.getElementById("graduation_year").value);
+            sessionStorage.setItem("major", document.getElementById("major").value);
+            sessionStorage.setItem("gpa", document.getElementById("gpa").value);
+            sessionStorage.setItem("email", document.getElementById("email").value);
+            
+            // Keep the action clean so Netlify only reads the data once
+            form.action = "/response.html";
         });
     </script>
 </body>
