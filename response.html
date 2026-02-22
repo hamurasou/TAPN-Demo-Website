@@ -66,13 +66,12 @@
     </footer>
 
     <script>
-        // Get parameters from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById("response-university").textContent = urlParams.get("university");
-        document.getElementById("response-graduation-year").textContent = urlParams.get("graduation_year");
-        document.getElementById("response-major").textContent = urlParams.get("major");
-        document.getElementById("response-gpa").textContent = urlParams.get("gpa");
-        document.getElementById("response-email").textContent = urlParams.get("email");
+        // Get parameters from the browser's session storage instead of the URL
+        document.getElementById("response-university").textContent = sessionStorage.getItem("university");
+        document.getElementById("response-graduation-year").textContent = sessionStorage.getItem("graduation_year");
+        document.getElementById("response-major").textContent = sessionStorage.getItem("major");
+        document.getElementById("response-gpa").textContent = sessionStorage.getItem("gpa");
+        document.getElementById("response-email").textContent = sessionStorage.getItem("email");
     </script>
 
 </body>
