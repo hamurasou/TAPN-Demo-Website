@@ -1,107 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Form - Software Engineer</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background-color: #004C8C; color: white; padding: 10px 0; text-align: center; }
-        section { padding: 20px; background-color: white; margin: 10px; border-radius: 5px; }
-        h1, h2 { color: #333; }
-        input, select { width: 100%; padding: 10px; margin: 5px 0 15px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
-        button { padding: 10px 20px; background-color: #004C8C; color: white; border: none; cursor: pointer; border-radius: 5px; }
-        button:disabled { background-color: #ccc; cursor: not-allowed; }
-        footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
-    </style>
-</head>
-<body>
+<form name="application" method="POST" data-netlify="true" enctype="multipart/form-data" action="/response.html">
+    
+    <input type="hidden" name="form-name" value="application" />
 
-    <header>
-        <h1>Software Engineer Application</h1>
-    </header>
+    <label for="university">University Name:</label>
+    <input type="text" name="university" required>
 
-    <section>
-        <h2>Apply for the Software Engineer Position</h2>
-        <form id="application-form">
-            <input type="hidden" name="access_key" value="78465d2e-ef03-42ef-8531-6593ab41a45a">
+    <label for="graduation_year">Year of Graduation:</label>
+    <input type="number" name="graduation_year" required>
 
-            <label for="university">University Name:</label>
-            <input type="text" id="university" name="university" required>
+    <label for="major">Major:</label>
+    <input type="text" name="major" required>
 
-            <label for="graduation_year">Year of Graduation:</label>
-            <input type="number" id="graduation_year" name="graduation_year" required>
+    <label for="gpa">GPA:</label>
+    <input type="number" name="gpa" step="0.1" required>
 
-            <label for="major">Major:</label>
-            <input type="text" id="major" name="major" required>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
 
-            <label for="gpa">GPA:</label>
-            <input type="number" id="gpa" name="gpa" step="0.1" min="0" max="4.0" required>
+    <label for="resume">Upload Resume (PDF):</label>
+    <input type="file" name="resume" accept=".pdf" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="resume">Upload Resume (PDF only):</label>
-            <input type="file" id="resume" name="attachment" accept=".pdf" required>
-
-            <button type="submit" id="submit-btn">Submit Application</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>If you have any questions, feel free to reach out:</p>
-        <p><strong>Email:</strong> brendanjaesungc@gmail.com</p>
-        <p><strong>Phone:</strong> 949-239-5501</p>
-    </footer>
-
-    <script>
-        document.getElementById("application-form").addEventListener("submit", async function(event) {
-            event.preventDefault(); 
-            
-            const submitBtn = document.getElementById("submit-btn");
-            submitBtn.disabled = true; 
-            submitBtn.innerText = "Sending Application..."; 
-
-            const formData = new FormData(this);
-            
-            // Extract values for the teammate's redirect page
-            const university = formData.get("university");
-            const graduation_year = formData.get("graduation_year");
-            const major = formData.get("major");
-            const gpa = formData.get("gpa");
-            const email = formData.get("email");
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    // Success! Construct the URL for the teammate's response.html
-                    const responseUrl = "response.html?" +
-                        "university=" + encodeURIComponent(university) + "&" +
-                        "graduation_year=" + encodeURIComponent(graduation_year) + "&" +
-                        "major=" + encodeURIComponent(major) + "&" +
-                        "gpa=" + encodeURIComponent(gpa) + "&" +
-                        "email=" + encodeURIComponent(email);
-                    
-                    window.location.href = responseUrl; 
-                } else {
-                    alert("Submission error: " + result.message);
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Submit Application";
-                }
-            } catch (error) {
-                console.error("Network Error:", error);
-                alert("Network error. Please ensure you are connected to the internet.");
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Submit Application";
-            }
-        });
-    </script>
-
-</body>
-</html>
+    <button type="submit">Submit Application</button>
+</form>
