@@ -1,24 +1,61 @@
-<form name="application" method="POST" data-netlify="true" enctype="multipart/form-data" action="/response.html">
-    
-    <input type="hidden" name="form-name" value="application" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form - Software Engineer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #004C8C; color: white; padding: 10px 0; text-align: center; }
+        section { padding: 20px; background-color: white; margin: 10px; border-radius: 5px; }
+        h1, h2 { color: #333; }
+        input { width: 100%; padding: 10px; margin: 5px 0 15px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #004C8C; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <header><h1>Software Engineer Application</h1></header>
 
-    <label for="university">University Name:</label>
-    <input type="text" name="university" required>
+    <section>
+        <h2>Apply for the Software Engineer Position</h2>
+        <form name="application" method="POST" data-netlify="true" enctype="multipart/form-data" action="/response.html">
+            <input type="hidden" name="form-name" value="application" />
 
-    <label for="graduation_year">Year of Graduation:</label>
-    <input type="number" name="graduation_year" required>
+            <label for="university">University Name:</label>
+            <input type="text" name="university" id="university" required>
 
-    <label for="major">Major:</label>
-    <input type="text" name="major" required>
+            <label for="graduation_year">Year of Graduation:</label>
+            <input type="number" name="graduation_year" id="graduation_year" required>
 
-    <label for="gpa">GPA:</label>
-    <input type="number" name="gpa" step="0.1" required>
+            <label for="major">Major:</label>
+            <input type="text" name="major" id="major" required>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" required>
+            <label for="gpa">GPA:</label>
+            <input type="number" name="gpa" id="gpa" step="0.1" min="0" max="4.0" required>
 
-    <label for="resume">Upload Resume (PDF):</label>
-    <input type="file" name="resume" accept=".pdf" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
 
-    <button type="submit">Submit Application</button>
-</form>
+            <label for="resume">Upload Resume (PDF only):</label>
+            <input type="file" name="resume" id="resume" accept=".pdf" required>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Email: brendanjaesungc@gmail.com | Phone: 949-239-5501</p>
+    </footer>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            const formData = new FormData(form);
+            const params = new URLSearchParams(formData);
+            // Append parameters to the action URL before navigating
+            form.action = `/response.html?${params.toString()}`;
+        });
+    </script>
+</body>
+</html>
